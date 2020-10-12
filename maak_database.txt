@@ -1,0 +1,119 @@
+CREATE DATABASE vereniging;
+
+USE vereniging;
+
+CREATE TABLE Lid(
+    lidnummer INT NOT NULL AUTO_INCREMENT,
+    naam VARCHAR(32) NOT NULL,
+    voornaam VARCHAR(32) NOT NULL,
+    postcode VARCHAR(7) NOT NULL,
+    huisnummer VARCHAR(6),
+    PRIMARY KEY(lidnummer)
+)ENGINE InnoDb;
+
+CREATE TABLE Telefoonnummers(
+    telefoonnummer VARCHAR(14) NOT NULL,
+    lidnummer INT,
+    PRIMARY KEY(telefoonnummer)
+)ENGINE InnoDb;
+
+CREATE TABLE Email(
+    emailadres VARCHAR(50) NOT NULL,
+    lidnummer INT NOT NULL,
+    PRIMARY KEY(emailadres)
+)ENGINE InnoDb;
+
+CREATE TABLE Postcode(
+    postcode VARCHAR(7) NOT NULL,
+    adres VARCHAR(32),
+    woonplaats VARCHAR(32),
+    PRIMARY KEY(postcode)
+)ENGINE InnoDb;
+
+CREATE TABLE Teams(
+    teamnaam VARCHAR(30) NOT NULL,
+    omschrijving TEXT,
+    PRIMARY KEY(teamnaam)
+)ENGINE InnoDb;
+
+CREATE TABLE Teamlid(
+    tl_ID INT NOT NULL AUTO_INCREMENT,
+    teamnaam VARCHAR(32) NOT NULL,
+    lidnummer INT NOT NULL,
+    PRIMARY KEY(tl_ID)
+)ENGINE InnoDb;
+
+INSERT INTO Lid VALUES(NULL, 'Jansen', 'Jan', '1234 AB', '12A' );
+INSERT INTO Telefoonnummers VALUES('0612345678', 1 );
+INSERT INTO Telefoonnummers VALUES('0611111111', 1 );
+INSERT INTO Telefoonnummers VALUES('0622222222', 1 );
+INSERT INTO Email VALUES('JJansen@gmail.com', 1 );
+INSERT INTO Email VALUES('Jantje@outlook.com', 1 );
+INSERT INTO Postcode VALUES('1234 AB', 'Dorpsstraat', 'Appingedam');
+
+INSERT INTO Lid VALUES(NULL, 'Pieterse', 'Pieter', '2250 ZZ', '115' );
+INSERT INTO Telefoonnummers VALUES('0611223344', 2 );
+INSERT INTO Telefoonnummers VALUES('0900-255255', 2 );
+INSERT INTO Email VALUES('PierPieterse89@outlook.com', 2 );
+INSERT INTO Postcode VALUES('2250 ZZ', 'Hoofdweg', 'Hoofddorp');
+
+INSERT INTO Lid VALUES(NULL, 'Karelse', 'Karel', '1234 AC', '81C' );
+INSERT INTO Telefoonnummers VALUES('0687654321', 3 );
+INSERT INTO Email VALUES('Karelse1975@gmail.com', 3 );
+INSERT INTO Email VALUES('kalekarel@gmail.com', 3 );
+INSERT INTO Email VALUES('Kareltje1975@outlook.com', 3 );
+INSERT INTO Postcode VALUES('1234 AC', 'Kerkstraat', 'Appingedam');
+
+INSERT INTO Lid VALUES(NULL, 'Pieterse', 'Paula', '2250 ZZ', '115' );
+INSERT INTO Telefoonnummers VALUES('0611223345', 4 );
+INSERT INTO Telefoonnummers VALUES('0900-255256', 4 );
+INSERT INTO Email VALUES('PaulaPieterse89@outlook.com', 4 );
+
+INSERT INTO Lid VALUES(NULL, 'Appelaar', 'Sandra', '4518 DH', '10' );
+INSERT INTO Telefoonnummers VALUES('0622001100', 5 );
+INSERT INTO Telefoonnummers VALUES('0900-255288', 5 );
+INSERT INTO Email VALUES('SandraAppelaar78@outlook.com', 5 );
+INSERT INTO Postcode VALUES('4518 DH', 'Hoofdstraat', 'Klazienaveen');
+
+INSERT INTO Lid VALUES(NULL, 'Huizen', 'Chris', '4108 BH', '38C' );
+INSERT INTO Telefoonnummers VALUES('0610520588', 6 );
+INSERT INTO Email VALUES('chrisje@gmail.com', 6 );
+INSERT INTO Postcode VALUES('4108 BH', 'Paardenmarkt', 'Groningen');
+
+INSERT INTO Lid VALUES(NULL, 'Schuurmans', 'Katja', '2285 KJ', '2' );
+INSERT INTO Telefoonnummers VALUES('0622334455', 7 );
+INSERT INTO Telefoonnummers VALUES('0900-188288', 7 );
+INSERT INTO Email VALUES('Schuurchick79@outlook.com', 7 );
+INSERT INTO Postcode VALUES('2285 KJ', 'Hemdstraat', 'Katwijk');
+
+INSERT INTO Lid VALUES(NULL, 'Hay', 'Barry', '2225 GE', '8' );
+INSERT INTO Telefoonnummers VALUES('0618928956', 8 );
+INSERT INTO Telefoonnummers VALUES('015-2156849', 8 );
+INSERT INTO Email VALUES('BH1962@outlook.com', 8 );
+INSERT INTO Postcode VALUES('2225 GE', 'Rocknrollpad', 'Den Haag');
+
+INSERT INTO Lid VALUES(NULL, 'Schrijver', 'Loretta', '1818 GD', '208' );
+INSERT INTO Telefoonnummers VALUES('061991654', 9 );
+INSERT INTO Telefoonnummers VALUES('020-2156849', 9 );
+INSERT INTO Email VALUES('Loretta@koffietijd.nl', 9 );
+INSERT INTO Email VALUES('Loretta@hotmail.com', 9 );
+INSERT INTO Postcode VALUES('1818 GD', 'Grobbengrot', 'Hilversum');
+
+INSERT INTO Lid VALUES(NULL, 'De Mol', 'Henk', '1111 AB', '68' );
+INSERT INTO Telefoonnummers VALUES('06264364', 10 );
+INSERT INTO Email VALUES('HdeMol@testpanel.com', 10 );
+INSERT INTO Postcode VALUES('1111 AB', 'Bergstraat', 'Zwolle');
+
+INSERT INTO Lid VALUES(NULL, 'Mutte', 'Rark', '2152 AF', '1' );
+INSERT INTO Telefoonnummers VALUES('0600000001', 11 );
+INSERT INTO Email VALUES('R.Mutte@overheid.nl', 11 );
+INSERT INTO Postcode VALUES('2152 AF', 'het torentje', 'Den Haag');
+
+INSERT INTO Lid VALUES(NULL, 'Marsman', 'Mister', '2888 GG', '101b' );
+INSERT INTO Telefoonnummers VALUES('064143867', 12 );
+INSERT INTO Email VALUES('Mr.Marsman@nasa.com', 12 );
+INSERT INTO Postcode VALUES('2888 GG', 'Koepel', 'Ijzendijke');
+
+INSERT INTO Teams VALUES('De Vips', 'Allemaal bekende figuren');
+INSERT INTO Teams VALUES('Krachtpatsers', 'Iedereen traint 4 keer per week, de andere dagen staan ze in de sportschool.');
+INSERT INTO Teams VALUES('Desperate Housemen', 'Zoals in de serie, maar nu real-life');
